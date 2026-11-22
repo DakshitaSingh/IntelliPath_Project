@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn with My Platform</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand-mark">✦</div>
+      <div>
+        <h1>Learn with My Platform</h1>
+        <p>Capture → Learn → Retain</p>
+      </div>
+    </header>
+
+    <section id="authView" class="card hidden">
+      <h2>Sign in</h2>
+      <p class="muted">Use the same account as your learning platform.</p>
+      <form id="loginForm">
+        <input id="email" type="email" placeholder="Email" autocomplete="username" required>
+        <input id="password" type="password" placeholder="Password" autocomplete="current-password" required>
+        <button class="primary" type="submit">Sign in</button>
+      </form>
+      <button id="openSignup" class="link-button">Create an account in the web app</button>
+    </section>
+
+    <section id="mainView" class="hidden">
+      <div class="selection card">
+        <div class="selection-head">
+          <span id="selectionStatus" class="status">Checking selection…</span>
+          <button id="refreshSelection" class="icon-button" title="Refresh">↻</button>
+        </div>
+        <p id="selectionText" class="selection-text">Select text on a webpage to get started.</p>
+        <p id="sourceText" class="source"></p>
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn" class="primary action">＋ Add to My Learning</button>
+        <button id="explainBtn" class="action">✦ Explain</button>
+        <button id="quizBtn" class="action">? Generate Quiz</button>
+        <button id="cardsBtn" class="action">▣ Generate Flashcards</button>
+      </div>
+
+      <div id="result" class="result hidden"></div>
+
+      <div class="footer-actions">
+        <button id="openApp" class="link-button">Open My Learning Platform ↗</button>
+        <button id="logout" class="link-button muted-link">Sign out</button>
+      </div>
+    </section>
+
+    <section class="settings">
+      <button id="settingsToggle" class="settings-toggle">Extension settings</button>
+      <div id="settingsPanel" class="hidden">
+        <label>Backend API URL</label>
+        <input id="apiBaseUrl" placeholder="http://localhost:5000/api">
+        <label>Web app URL</label>
+        <input id="appUrl" placeholder="http://localhost:5173">
+        <button id="saveSettings" class="secondary">Save settings</button>
+        <p class="hint">Do not enter API keys here. The extension only uses your platform's authenticated API.</p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+{
+  "dataset": {
+    "n_rows": 4925,
+    "n_columns": 13,
+    "numeric_features": [
+      "Acedamic percentage in 10th",
+      "percentage in 12th",
+      "Logical quotient rating",
+      "hackathons",
+      "coding skills rating",
+      "public speaking points"
+    ],
+    "categorical_features": [
+      "self-learning capability?",
+      "Extra-courses did",
+      "certifications",
+      "workshops",
+      "Interested subjects",
+      "interested career area"
+    ],
+    "target": "Suggested Job Role",
+    "n_classes": 12,
+    "classes": [
+      "Applications Developer",
+      "CRM Technical Developer",
+      "Database Developer",
+      "Mobile Applications Developer",
+      "Network Security Engineer",
+      "Software Developer",
+      "Software Engineer",
+      "Software Quality Assurance (QA) / Testing",
+      "Systems Security Administrator",
+      "Technical Support",
+      "UX Designer",
+      "Web Developer"
+    ],
+    "missing_values_total": 0,
+    "class_distribution": {
+      "Network Security Engineer": 630,
+      "Software Engineer": 590,
+      "Software Developer": 587,
+      "Software Quality Assurance (QA) / Testing": 571,
+      "Database Developer": 519,
+      "Applications Developer": 494,
+      "Mobile Applications Developer": 488,
+      "CRM Technical Developer": 412,
+      "Technical Support": 331,
+      "Systems Security Administrator": 148,
+      "UX Designer": 92,
+      "Web Developer": 63
+    }
+  },
+  "dropped_duplicates": 0,
+  "train_rows": 3940,
+  "test_rows": 985,
+  "model_comparison_cv": {
+    "LogisticRegression": {
+      "cv_macro_f1_mean": 0.4153,
+      "cv_macro_f1_std": 0.0233,
+      "cv_fold_scores": [
+        0.4325,
+        0.4507,
+        0.4086,
+        0.3992,
+        0.3858
+      ],
+      "train_time_seconds": 0.83
+    },
+    "DecisionTree": {
+      "cv_macro_f1_mean": 0.8409,
+      "cv_macro_f1_std": 0.0085,
+      "cv_fold_scores": [
+        0.8342,
+        0.8379,
+        0.8523,
+        0.8494,
+        0.8307
+      ],
+      "train_time_seconds": 0.26
+    },
+    "RandomForest": {
+      "cv_macro_f1_mean": 0.7485,
+      "cv_macro_f1_std": 0.006,
+      "cv_fold_scores": [
+        0.7427,
+        0.7533,
+        0.7575,
+        0.7423,
+        0.7464
+      ],
+      "train_time_seconds": 3.19
+    },
+    "SVM": {
+      "cv_macro_f1_mean": 0.5174,
+      "cv_macro_f1_std": 0.0202,
+      "cv_fold_scores": [
+        0.5111,
+        0.5572,
+        0.5019,
+        0.507,
+        0.5097
+      ],
+      "train_time_seconds": 7.93
+    }
+  },
+  "probability_quality_check": {
+    "LogisticRegression": {
+      "test_accuracy": 0.4619,
+      "test_f1_macro": 0.4382,
+      "top3_accuracy": 0.864,
+      "saturated_probability_fraction": 0.0
+    },
+    "DecisionTree": {
+      "test_accuracy": 0.8142,
+      "test_f1_macro": 0.8398,
+      "top3_accuracy": 0.9949,
+      "saturated_probability_fraction": 0.9005
+    },
+    "RandomForest": {
+      "test_accuracy": 0.7665,
+      "test_f1_macro": 0.756,
+      "top3_accuracy": 0.9157,
+      "saturated_probability_fraction": 0.0
+    },
+    "SVM": {
+      "test_accuracy": 0.6365,
+      "test_f1_macro": 0.5394,
+      "top3_accuracy": 0.9411,
+      "saturated_probability_fraction": 0.0
+    }
+  },
+  "selected_model": "RandomForest",
+  "selection_metric": "cross_validated_macro_f1_with_probability_quality_check",
+  "selection_rationale": "'DecisionTree' had the highest cross-validated macro F1 (0.8409), but its predict_proba output is saturated for 90% of test cases (single-tree leaves vote 100%/0%), which is unusable for a ranked top-3/5 recommendation list with match scores. 'RandomForest' was selected instead: cv_macro_f1=0.7485, test top-3 accuracy=0.9157, saturated_probability_fraction=0.0.",
+  "test_metrics": {
+    "accuracy": 0.7665,
+    "precision_macro": 0.7405,
+    "recall_macro": 0.7952,
+    "f1_macro": 0.756,
+    "f1_weighted": 0.7254,
+    "confusion_matrix": [
+      [
+        18,
+        13,
+        23,
+        14,
+        8,
+        9,
+        10,
+        1,
+        1,
+        2,
+        0,
+        0
+      ],
+      [
+        17,
+        9,
+        22,
+        14,
+        9,
+        5,
+        3,
+        0,
+        2,
+        0,
+        0,
+        1
+      ],
+      [
+        9,
+        13,
+        33,
+        19,
+        11,
+        10,
+        3,
+        1,
+        0,
+        3,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        98,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        2,
+        124,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        117,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        116,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        114,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        29,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        66,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        13
+      ]
+    ],
+    "classification_report": {
+      "Applications Developer": {
+        "precision": 0.4090909090909091,
+        "recall": 0.18181818181818182,
+        "f1-score": 0.2517482517482518,
+        "support": 99.0
+      },
+      "CRM Technical Developer": {
+        "precision": 0.2571428571428571,
+        "recall": 0.10975609756097561,
+        "f1-score": 0.15384615384615385,
+        "support": 82.0
+      },
+      "Database Developer": {
+        "precision": 0.4230769230769231,
+        "recall": 0.3173076923076923,
+        "f1-score": 0.3626373626373626,
+        "support": 104.0
+      },
+      "Mobile Applications Developer": {
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1-score": 0.8,
+        "support": 98.0
+      },
+      "Network Security Engineer": {
+        "precision": 0.8157894736842105,
+        "recall": 0.9841269841269841,
+        "f1-score": 0.8920863309352518,
+        "support": 126.0
+      },
+      "Software Developer": {
+        "precision": 0.823943661971831,
+        "recall": 1.0,
+        "f1-score": 0.9034749034749034,
+        "support": 117.0
+      },
+      "Software Engineer": {
+        "precision": 0.8787878787878788,
+        "recall": 0.9830508474576272,
+        "f1-score": 0.928,
+        "support": 118.0
+      },
+      "Software Quality Assurance (QA) / Testing": {
+        "precision": 0.9743589743589743,
+        "recall": 1.0,
+        "f1-score": 0.987012987012987,
+        "support": 114.0
+      },
+      "Systems Security Administrator": {
+        "precision": 0.90625,
+        "recall": 0.9666666666666667,
+        "f1-score": 0.9354838709677419,
+        "support": 30.0
+      },
+      "Technical Support": {
+        "precision": 0.9166666666666666,
+        "recall": 1.0,
+        "f1-score": 0.9565217391304348,
+        "support": 66.0
+      },
+      "UX Designer": {
+        "precision": 0.9473684210526315,
+        "recall": 1.0,
+        "f1-score": 0.972972972972973,
+        "support": 18.0
+      },
+      "Web Developer": {
+        "precision": 0.8666666666666667,
+        "recall": 1.0,
+        "f1-score": 0.9285714285714286,
+        "support": 13.0
+      },
+      "accuracy": 0.766497461928934,
+      "macro avg": {
+        "precision": 0.7404840915971848,
+        "recall": 0.7952272058281773,
+        "f1-score": 0.7560296667747908,
+        "support": 985.0
+      },
+      "weighted avg": {
+        "precision": 0.711564082003522,
+        "recall": 0.766497461928934,
+        "f1-score": 0.725447271241844,
+        "support": 985.0
+      }
+    }
+  },
+  "classes": [
+    "Applications Developer",
+    "CRM Technical Developer",
+    "Database Developer",
+    "Mobile Applications Developer",
+    "Network Security Engineer",
+    "Software Developer",
+    "Software Engineer",
+    "Software Quality Assurance (QA) / Testing",
+    "Systems Security Administrator",
+    "Technical Support",
+    "UX Designer",
+    "Web Developer"
+  ],
+  "numeric_features": [
+    "Acedamic percentage in 10th",
+    "percentage in 12th",
+    "Logical quotient rating",
+    "hackathons",
+    "coding skills rating",
+    "public speaking points"
+  ],
+  "categorical_features": [
+    "self-learning capability?",
+    "Extra-courses did",
+    "certifications",
+    "workshops",
+    "Interested subjects",
+    "interested career area"
+  ],
+  "top_feature_importance": [
+    [
+      "num__Acedamic percentage in 10th",
+      0.376393624090195
+    ],
+    [
+      "num__percentage in 12th",
+      0.3521551274753074
+    ],
+    [
+      "num__coding skills rating",
+      0.027411580046779863
+    ],
+    [
+      "num__Logical quotient rating",
+      0.026024439615551665
+    ],
+    [
+      "num__public speaking points",
+      0.025196224950718618
+    ],
+    [
+      "num__hackathons",
+      0.024243855693208614
+    ],
+    [
+      "cat__Extra-courses did_yes",
+      0.007955274723228918
+    ],
+    [
+      "cat__self-learning capability?_yes",
+      0.007809921096845116
+    ],
+    [
+      "cat__self-learning capability?_no",
+      0.007292546145673167
+    ],
+    [
+      "cat__Extra-courses did_no",
+      0.007183285625584049
+    ],
+    [
+      "cat__interested career area_system developer",
+      0.006445630761353527
+    ],
+    [
+      "cat__interested career area_cloud computing",
+      0.005527607527083351
+    ],
+    [
+      "cat__interested career area_developer",
+      0.005187261870099579
+    ],
+    [
+      "cat__interested career area_Business process analyst",
+      0.005142240250041126
+    ],
+    [
+      "cat__interested career area_security",
+      0.004899977912791362
+    ]
+  ],
+  "trained_at": "2026-09-10T07:31:49Z",
+  "sklearn_note": "class_weight='balanced' used on all candidates to mitigate class imbalance (largest class ~10x the smallest) instead of naive resampling, so the held-out test set stays representative."
+}
