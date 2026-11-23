@@ -11,7 +11,7 @@
  * crosses the network. `top-authors` (small, static-ish) is still cached
  * briefly since it changes only on retrain.
  */
-const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://localhost:8001';
+const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'https://intellipath-project-1.onrender.com';
 const TOP_AUTHORS_CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes
 
 let _topAuthorsCache = { authors: null, fetchedAt: 0 };

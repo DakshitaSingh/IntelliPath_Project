@@ -3,8 +3,7 @@
  * Uses Node's built-in fetch (Node 18+, already required by this project's
  * other dependencies), so no extra HTTP package is needed.
  */
-
-const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://localhost:8001';
+const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'https://intellipath-project-1.onrender.com';
 
 const predictCareer = async (assessmentFeatures) => {
   let response;
