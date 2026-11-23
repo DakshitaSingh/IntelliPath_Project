@@ -5,7 +5,7 @@ export async function getConfig() {
   const data = await chrome.storage.local.get(['apiBaseUrl', 'appUrl']);
   return {
     apiBaseUrl: (data.apiBaseUrl || DEFAULT_API_BASE).replace(/\/+$/, ''),
-    appUrl: (data.appUrl || 'http://localhost:5173').replace(/\/+$/, ''),
+    appUrl: (data.appUrl || 'https://intelli-path-project.vercel.app').replace(/\/+$/, ''),
   };
 }
 
