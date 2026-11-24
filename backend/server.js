@@ -13,6 +13,7 @@ const quizRoutes = require('./routes/quizRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const careerRoutes = require('./routes/careerRoutes');
 const bookRoutes = require('./routes/bookRoutes');
+const faceRoutes = require('./routes/faceRoutes');
 
 const app = express();
 
@@ -48,6 +49,8 @@ app.use('/api/quizzes', quizRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/career', careerRoutes);
 app.use('/api/books', bookRoutes);
+app.use('/api/face', faceRoutes);
+
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 

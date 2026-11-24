@@ -7,6 +7,10 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
     password: { type: String, required: true, minlength: 6 },
     avatarColor: { type: String, default: '#10b981' },
+    // Face authentication (additive; optional for all users)
+    faceEnrolled: { type: Boolean, default: false },
+    faceDescriptors: { type: [String], default: [], select: false }, // AES-GCM encrypted
+    faceRegisteredAt: { type: Date },
   },
   { timestamps: true }
 );
@@ -23,7 +27,7 @@ userSchema.methods.comparePassword = function (candidate) {
 };
 
 userSchema.methods.toSafeObject = function () {
-  return { id: this._id, name: this.name, email: this.email, avatarColor: this.avatarColor };
+  return { id: this._id, name: this.name, email: this.email, avatarColor: this.avatarColor, faceEnrolled: !!this.faceEnrolled };
 };
 
 module.exports = mongoose.model('User', userSchema);
