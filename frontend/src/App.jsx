@@ -17,12 +17,14 @@ import CareerGuidance from './pages/CareerGuidance';
 import CareerAssessment from './pages/CareerAssessment';
 import CareerResults from './pages/CareerResults';
 import BookRecommendations from './pages/BookRecommendations';
+import FaceLogin from './pages/FaceLogin';
 
 function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/face-login" element={<FaceLogin />} />
 
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
       <Route path="/documents" element={<ProtectedRoute><Documents /></ProtectedRoute>} />

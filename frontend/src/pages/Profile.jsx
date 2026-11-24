@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import AppLayout from '../components/AppLayout';
+import FaceRegistrationCard from '../components/FaceRegistrationCard';
 
 const Profile = () => {
   const { user } = useAuth();
@@ -23,6 +24,8 @@ const Profile = () => {
           <p className="text-slate-500 text-sm">{user.email}</p>
         </div>
       </div>
+
+      <FaceRegistrationCard />
     </AppLayout>
   );
 };

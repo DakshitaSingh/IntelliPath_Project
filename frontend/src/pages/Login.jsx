@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ScanFace } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
@@ -61,6 +61,9 @@ const Login = () => {
             {loading ? 'Logging in...' : 'Log In'}
           </button>
         </form>
+                <Link to="/face-login" className="btn-secondary w-full mt-3 flex items-center justify-center gap-2">
+          <ScanFace size={16} /> Log in with Face
+        </Link>
 
         <p className="text-sm text-slate-500 text-center mt-6">
           Don't have an account?{' '}
