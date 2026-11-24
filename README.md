@@ -1,6 +1,6 @@
 # AI Learning Assistant
 
-A full-stack AI-powered study platform built with the MERN stack (MongoDB, Express, React, Node.js) and Google Gemini.
+A full-stack AI-powered study platform built with the MERN stack (MongoDB, Express, React, Node.js) and Google Gemini. 
 
 ## Features
 1. JWT authentication (signup/login)
